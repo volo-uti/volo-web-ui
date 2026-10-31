@@ -1,0 +1,90 @@
+[data-display]
+v-avatar|VAvatar: User avatar with image, initials or icon fallback; focusable when it has `onClick`.
+v-badge|VBadge: Count or label badge pinned to the corner of its child; counts above `max` show as "99+".
+v-check-list-tile|VCheckListTile: List tile with a built-in checkbox.
+v-chip|VChip: Compact tag; clickable, a toggleable filter or removable.
+v-divider|VDivider: Separator line, solid or dashed, with an optional centre label.
+v-hover-card|VHoverCard: Rich preview card that opens on hover and closes when the pointer leaves.
+v-image|VImage: Image with loading placeholder, fade-in and error fallback; `ref` is the `<img>`.
+v-list-tile|VListTile: Row with leading, title, subtitle and trailing slots; pressable with `onClick`.
+v-setting-tile|VSettingTile: Settings row ending in a chevron, switch, checkbox or custom content.
+v-switch-list-tile|VSwitchListTile: List tile with a built-in switch.
+v-table|VTable: Data table driven by `columns` and `data`, with sortable headers and an empty state.
+v-tooltip|VTooltip: Text bubble shown after a delay on hover or focus; Escape closes it.
+[feedback]
+v-alert-dialog|VAlertDialog: Modal dialog that needs an explicit answer.
+v-alert|VAlert: Inline message box with a severity icon, optional title, action and close button.
+v-backdrop|VBackdrop: Full-screen dimming layer for custom modals and drawers; press it with `onClick`.
+v-dialog|VDialog: Modal dialog with backdrop and focus trap.
+v-loading-spinner|VLoadingSpinner: Circular arc spinner for an unknown wait; `role="status"` with a localized label.
+v-progress|VProgress: Linear or circular progress bar, determinate (0-100) or indeterminate.
+v-skeleton|VSkeleton: Grey placeholder block, line or circle shown in place of content while it loads.
+v-snackbar|VSnackbar: Brief message bar at the screen bottom with an optional action.
+v-toast|toast: Imperative toast API: `success`, `info`, `warning`, `error`, `default`, `dismiss`.
+[hooks]
+use-component-override|useComponentOverride: Reads the theme overrides of one component by name.
+use-controllable|useControllable: State that works both controlled and uncontrolled.
+use-focus-trap|useFocusTrap: Traps focus inside a container while open and restores it on close.
+use-locale|useLocale: Returns the current locale tag. useLocaleText: Returns the resolved UI text.
+use-roving-focus|useRovingFocus: Arrow-key focus movement between the items of a container (roving tabindex).
+use-snackbar-queue|useSnackbarQueue: Queues snackbars and exposes the current one.
+use-theme|useTheme: Reads the colour scheme, its setters and component overrides.
+[inputs]
+v-autocomplete|VAutocomplete: Text input with suggestions filtered as you type.
+v-button-group|VButtonGroup: Connected strip of VButtons with arrow-key focus.
+v-button|VButton: Text button with variants, loading state and leading/trailing slots.
+v-checkbox|VCheckbox: Checkbox with label, indeterminate state and card variant.
+v-fab|VFab: Floating action button for the main action of a screen, fixed in a corner.
+v-form-body|VFormBody: Bordered surface that holds a form control with optional leading and trailing elements.
+v-form-field|VFormField: Form field that stacks a label row, a control and a message row.
+v-form-footer|VFormFooter: Message row below a form field: error, success or helper text, counter and extra note.
+v-form-header|VFormHeader: Label row above a form field: label, required mark, tooltip and extra info.
+v-form|VForm: Vertical form layout that stops the browser's default submit navigation.
+v-icon-button|VIconButton: Icon-only button with four variants and an optional pressed (toggle) state.
+v-label|VLabel: Form label with size tokens and a required mark; renders a native `<label>`.
+v-link|VLink: Styled anchor with underline and colour options; `as` swaps in a router Link.
+v-radio|VRadio: Labelled radio; must sit inside a VRadioGroup.
+v-select|VSelect: Dropdown select, single or multiple.
+v-slider|VSlider: Draggable single-value slider with keyboard control.
+v-switch|VSwitch: On/off switch with label (role switch).
+v-text-area|VTextArea: Multi-line text input with label, messages, a counter and optional auto-resize.
+v-text-field|VTextField: Single-line text input with label, messages, adornments and a clear button.
+v-toggle-button|VToggleButton: Button that toggles and exposes aria-pressed.
+[layout]
+v-box|VBox: Plain container with optional card, outlined or elevated surface.
+v-carousel|VCarousel: Swipeable slideshow with keyboard, arrows, auto-play and page dots.
+v-grid|VGrid: Grid of children with a fixed column count or an auto-fill minimum width.
+v-resizable|VResizable: Split panels with draggable handles.
+v-scroll-area|VScrollArea: Scrollable region with a themed, optionally auto-hiding scrollbar.
+v-section|VSection: Titled content section that can collapse.
+v-stack|VStack: Row or column of children with spacing.
+[lib]
+cn|cn: Merges class names using clsx and tailwind-merge.
+create-context|createSafeContext: Creates a context whose hook throws outside its Provider.
+types|VSize: Component sizes. VColor: Semantic colours. VVariant: Visual variants. VOption: Option of Select-like components. VOrientation: Layout orientation. VSide: Four sides. VAlign: Start, center or end alignment.
+[navigation]
+v-app-bar|VAppBar: Top bar with title, leading element and actions.
+v-bottom-nav|VBottomNav: Bottom bar for switching between three to five primary destinations.
+v-breadcrumb|VBreadcrumb: Trail of links showing where the page sits in the hierarchy.
+v-command|VCommand: Searchable command palette with arrow-key selection.
+v-drawer|VDrawer: Panel that slides in from any screen edge, modal or persistent.
+v-menu|VMenu: Dropdown menu opened by a trigger, with arrow-key navigation.
+v-page-indicator|VPageIndicator: Page position as dots, a number or a progress line.
+v-pagination|VPagination: Page navigation with numbered buttons and ellipses.
+v-stepper|VStepper: Numbered step progress with labels, in a row or a column.
+v-tabs|VTabs: Tabs that switch between panels; arrow keys move between tabs.
+[provider]
+locale-provider|useLocaleContext: Reads the locale context; returns the English defaults outside a `LocaleProvider`. LocaleProvider: Provides locale and text overrides.
+locale-text|defaultLocaleText: English text.
+volo-provider|VoloProvider: Wraps the app in ThemeProvider and LocaleProvider at once.
+[surfaces]
+v-accordion|VAccordion: Collapsible content sections; arrow keys move between triggers.
+v-card|VCard: Container that groups related content; becomes a pressable button with `interactive`.
+v-popover|VPopover: Floating panel anchored to a trigger; closes on Escape or an outside press.
+v-sheet|VSheet: Plain themed surface for grouping content; lighter than VCard.
+[theme]
+create-theme|createTheme: Builds a theme from token and component overrides.
+default-theme|defaultTheme: Default theme without overrides.
+provider|ThemeContext: Context behind `ThemeProvider`; read it with `useTheme`. ThemeProvider: Applies the theme's CSS variables and holds the colour scheme.
+[utils]
+dev-warning|devWarning: Logs a warning to the console in development only.

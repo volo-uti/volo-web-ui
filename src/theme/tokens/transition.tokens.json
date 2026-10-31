@@ -1,0 +1,45 @@
+{
+  "transition": {
+    "$type": "transition",
+    "micro": {
+      "$value": {
+        "duration": "75ms",
+        "delay": "0ms",
+        "timingFunction": [0, 0, 0.58, 1]
+      },
+      "$description": "Micro-interaction (ripple, toggle, checkbox)"
+    },
+    "fast": {
+      "$value": {
+        "duration": "150ms",
+        "delay": "0ms",
+        "timingFunction": [0, 0, 0.58, 1]
+      },
+      "$description": "Quick feedback (hover, focus)"
+    },
+    "normal": {
+      "$value": {
+        "duration": "300ms",
+        "delay": "0ms",
+        "timingFunction": [0.42, 0, 0.58, 1]
+      },
+      "$description": "Standard transition (modal, dropdown)"
+    },
+    "slow": {
+      "$value": {
+        "duration": "500ms",
+        "delay": "0ms",
+        "timingFunction": [0.42, 0, 0.58, 1]
+      },
+      "$description": "Complex or attention-grabbing"
+    },
+    "emphasized": {
+      "$value": {
+        "duration": "300ms",
+        "delay": "0ms",
+        "timingFunction": [0.33, 1, 0.68, 1]
+      },
+      "$description": "Dramatic entrance with emphasized deceleration"
+    }
+  }
+}

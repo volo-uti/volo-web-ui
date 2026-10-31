@@ -1,0 +1,13 @@
+# Dependencies and build output
+node_modules
+dist
+build
+storybook-static
+*.log
+
+# Generated
+pnpm-lock.yaml
+# Docs written by pnpm index
+docs/
+# gen-tokens.mjs output, kept as is (check:tokens compares bytes)
+src/theme/tokens.generated.css

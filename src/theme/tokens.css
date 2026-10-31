@@ -1,0 +1,136 @@
+/**
+ * Volo Design System -- Web-only CSS Variables
+ *
+ * All DTCG-derived values are auto-generated in tokens.generated.css.
+ * This file only contains Web-specific values that cannot be expressed
+ * in DTCG token format.
+ *
+ * Import this file in your app root:
+ *   import '@volo-uti/volo-web-ui/theme/tokens.css'
+ */
+
+@import "./tokens.generated.css";
+
+:root {
+  /* Web-only easing (linear() function, not representable in DTCG cubicBezier) */
+  --v-ease-bouncy: linear(
+    0,
+    0.17 2%,
+    0.39 4%,
+    0.61 6%,
+    0.82 8%,
+    1 10%,
+    1.13 12%,
+    1.23 14%,
+    1.27 16%,
+    1.27 18%,
+    1.25 20%,
+    1.21 22%,
+    1.15 24%,
+    1.1 26%,
+    1.04 28%,
+    1 30%,
+    0.97 32%,
+    0.94 34%,
+    0.93 36%,
+    0.93 38%,
+    0.94 40%,
+    0.96 43%,
+    0.98 46%,
+    1 50%,
+    1.01 55%,
+    1.02 60%,
+    1 70%
+  );
+
+  /* Component size radius: now generated from component-size.tokens.json */
+}
+
+/* ─────────────────────────────────────────
+ * Component animation keyframes
+ * Shared animation timings.
+ * ───────────────────────────────────────── */
+
+/* VBadge: bounce on content change */
+@keyframes v-badge-bounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* VChip: filter check icon scale-in */
+@keyframes v-chip-check-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* VDialog/VAlertDialog: fade+scale enter */
+@keyframes v-dialog-enter {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* VDialog/VAlertDialog: backdrop fade-in */
+@keyframes v-backdrop-enter {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* VSnackbar: slide-up + fade-in enter */
+@keyframes v-snackbar-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* VSnackbar: slide-out dismiss */
+@keyframes v-snackbar-exit {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+/* VTabs: content fade transition */
+@keyframes v-tabs-content-enter {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
