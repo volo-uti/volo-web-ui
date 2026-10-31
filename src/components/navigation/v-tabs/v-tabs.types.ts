@@ -1,8 +1,8 @@
 import type { ButtonHTMLAttributes, HTMLAttributes, ReactNode } from "react";
 import type { VOrientation } from "../../../lib";
 
-/** Visual style of a VTabsList. */
-export type VTabsVariant = "default" | "pills" | "underline";
+/** Visual style of a VTabsList; `overline` marks the active tab with a 4px bar on its top edge. */
+export type VTabsVariant = "default" | "pills" | "underline" | "overline";
 
 /** VTabs props; other props go to the root `<div>`. */
 export interface VTabsProps extends Omit<

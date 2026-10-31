@@ -34,6 +34,26 @@ export const Showcase: Story = {
       title="VTabs"
       description="Tab navigation compound component for switching between content panels."
     >
+      <StorybookSection title="Variant">
+        {(["default", "pills", "underline", "overline"] as const).map((variant) => (
+          <StorybookSubsection
+            key={variant}
+            title={variant}
+            labels={[`VTabsList(variant="${variant}")`]}
+          >
+            <VTabs defaultValue="tab1" className="w-full">
+              <VTabsList variant={variant}>
+                <VTabsTrigger value="tab1">Account</VTabsTrigger>
+                <VTabsTrigger value="tab2">Password</VTabsTrigger>
+                <VTabsTrigger value="tab3">Settings</VTabsTrigger>
+              </VTabsList>
+              <VTabsContent value="tab1">
+                <p className="p-4 text-sm">Account settings content.</p>
+              </VTabsContent>
+            </VTabs>
+          </StorybookSubsection>
+        ))}
+      </StorybookSection>
       <StorybookSection title="Orientation">
         <StorybookSubsection title="horizontal" labels={['VTabs(orientation="horizontal")']}>
           <VTabs defaultValue="tab1" orientation="horizontal" className="w-full">

@@ -110,6 +110,7 @@ const listVariantStyles: Record<VTabsVariant, string> = {
   default: "bg-[var(--v-muted)] rounded-[var(--v-radius-md)] p-1",
   pills: "gap-1",
   underline: "border-b border-[var(--v-border)]",
+  overline: "border-b border-[var(--v-border)]",
 };
 
 /** Tablist container that holds the VTabsTrigger buttons. */
@@ -163,6 +164,7 @@ const triggerActiveStyles: Record<VTabsVariant, string> = {
   default: "bg-[var(--v-card)] text-[var(--v-foreground)] shadow-sm",
   pills: "bg-[var(--v-primary)] text-[var(--v-primary-foreground)] rounded-full",
   underline: "border-b-2 border-[var(--v-primary)] text-[var(--v-foreground)]",
+  overline: "border-t-4 border-[var(--v-primary)] text-[var(--v-foreground)]",
 };
 
 const triggerInactiveStyles: Record<VTabsVariant, string> = {
@@ -172,6 +174,8 @@ const triggerInactiveStyles: Record<VTabsVariant, string> = {
     "text-[var(--v-muted-foreground)] hover:bg-[var(--v-muted)]/50 hover:text-[var(--v-foreground)] rounded-full",
   underline:
     "text-[var(--v-muted-foreground)] hover:bg-[var(--v-muted)]/50 hover:text-[var(--v-foreground)] border-b-2 border-transparent",
+  overline:
+    "text-[var(--v-muted-foreground)] hover:bg-[var(--v-muted)]/50 hover:text-[var(--v-foreground)] border-t-4 border-transparent",
 };
 
 /** Tab button that activates its panel. */
@@ -248,7 +252,7 @@ const VTabsTrigger = forwardRef<HTMLButtonElement, VTabsTriggerProps>((props, re
         "px-[var(--v-spacing-md)] py-[var(--v-spacing-xs)]",
         "text-[length:var(--v-size-md-font-size)]",
         "font-[var(--v-font-weight-medium)]",
-        variant === "underline" ? "" : "rounded-[var(--v-radius-sm)]",
+        variant === "underline" || variant === "overline" ? "" : "rounded-[var(--v-radius-sm)]",
         "transition-all duration-[var(--v-duration-fast)] cursor-pointer",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--v-ring)]",
         isActive ? triggerActiveStyles[variant] : triggerInactiveStyles[variant],

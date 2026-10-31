@@ -71,8 +71,8 @@ VTabsContent props; other props go to the `<div role="tabpanel">`.
 
 ### VTabsVariant
 
-Visual style of a VTabsList.
+Visual style of a VTabsList; `overline` marks the active tab with a 4px bar on its top edge.
 
 ```ts
-type VTabsVariant = "default" | "pills" | "underline";
+type VTabsVariant = "default" | "pills" | "underline" | "overline";
 ```

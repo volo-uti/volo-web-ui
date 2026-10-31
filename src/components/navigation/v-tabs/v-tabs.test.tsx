@@ -220,4 +220,34 @@ describe("VTabs tab stop and ids", () => {
     expect(screen.getByRole("tabpanel", { name: "Settings" })).toBeInTheDocument();
     expect(screen.getByRole("tab", { name: "Settings" }).id).not.toMatch(/\s/);
   });
+
+  describe("overline variant", () => {
+    const renderOverline = () =>
+      renderWithTheme(
+        <VTabs defaultValue="tab1">
+          <VTabsList variant="overline" aria-label="Sections">
+            <VTabsTrigger value="tab1">Tab 1</VTabsTrigger>
+            <VTabsTrigger value="tab2">Tab 2</VTabsTrigger>
+          </VTabsList>
+          <VTabsContent value="tab1">Content 1</VTabsContent>
+          <VTabsContent value="tab2">Content 2</VTabsContent>
+        </VTabs>,
+      );
+
+    it("marks the active tab with a 4px top bar", () => {
+      renderOverline();
+      expect(screen.getByRole("tablist")).toHaveAttribute("data-v-variant", "overline");
+      expect(screen.getByText("Tab 1")).toHaveClass("border-t-4", "border-[var(--v-primary)]");
+    });
+
+    it("keeps the bar's space on inactive tabs so the layout does not shift", () => {
+      renderOverline();
+      expect(screen.getByText("Tab 2")).toHaveClass("border-t-4", "border-transparent");
+    });
+
+    it("has no accessibility violations", async () => {
+      const { container } = renderOverline();
+      await axeTest(container);
+    });
+  });
 });
