@@ -31,6 +31,8 @@ Peer dependencies: `react ^19` · `react-dom ^19` · `tailwindcss ^4`.
 
 ## Using it in a product
 
+Run the index step below before you plan or write any UI. It is what tells a coding agent which components already exist, so it does not rebuild them.
+
 1. **Tokens and source path**: import the tokens in the app's global CSS and add `@source` so Tailwind finds the component classes (the path is relative to the CSS file).
 
    ```css
@@ -104,6 +106,10 @@ Peer dependencies: `react ^19` · `react-dom ^19` · `tailwindcss ^4`.
    ```
 
    Rule options in flat config are not merged: a separate `no-restricted-syntax` for the same `files` overrides this rule. To block more elements in a product, pass them as the argument of `restrictRawElements(extra)` as above, and keep other selectors inside the same rule. The default list is available as `rawElementReplacements`.
+
+## When something is missing
+
+If a component almost fits, try its props and variants first. If one detail still cannot be done, write only that detail by hand in the product, mark it `// TODO(library: <what is missing>)` with what you tried, and open an issue in this repository. Do not copy or rebuild the whole component. When the package gets the detail, upgrade it and delete the marker. Search for `TODO(library:` to see what is still open.
 
 ## Working on this repository
 
