@@ -68,6 +68,10 @@ Run the index step below before you plan or write any UI. It is what tells a cod
 
    The `@volo-uti/volo-web-ui` bundle starts with `"use client"`, so you can use `VoloProvider` directly in Next.js server components (`app/layout.tsx` and so on). Function and callback props (such as functions inside `theme`) cannot be passed from server to client. If you need such values, put the provider in a `'use client'` file like `Root` above and use that in the layout.
 
+   **One owner for the colour scheme.** `VoloProvider` sets the `dark` class, `data-v-color-scheme` and `color-scheme` on `<html>`, and stores the choice in `localStorage` under `storageKey` (`volo-color-scheme` by default). If the product already has its own theme provider or toggle, remove the provider and drive the toggle with `toggleDark` or `setColorScheme` from `useTheme`. Two owners leave the page half light and half dark, and the dark scheme then fails contrast checks.
+
+   Something outside the page that must follow the scheme, such as a desktop app's native theme, takes the stored choice (`light`, `dark`, or `system` when nothing is stored) each time `resolvedColorScheme` changes. Do not hand it `resolvedColorScheme` itself: that pins it to light or dark, and `system` stops following the OS.
+
 4. **Server components**: the `@volo-uti/volo-web-ui` bundle is a client bundle, so in a server component `cn`, `createTheme` and the locale text are client references that you cannot call or read, and importing them pulls the whole bundle into the client graph. Import the pure parts from `@volo-uti/volo-web-ui/core` instead. It has no `"use client"` and loads no React code.
 
    ```tsx
@@ -105,7 +109,17 @@ Run the index step below before you plan or write any UI. It is what tells a cod
    ];
    ```
 
-   Rule options in flat config are not merged: a separate `no-restricted-syntax` for the same `files` overrides this rule. To block more elements in a product, pass them as the argument of `restrictRawElements(extra)` as above, and keep other selectors inside the same rule. The default list is available as `rawElementReplacements`.
+   Rule options in flat config are not merged: a separate `no-restricted-syntax` for the same `files` overrides this rule. To block more elements in a product, pass them as the argument of `restrictRawElements(extra)` as above. The default list is available as `rawElementReplacements`.
+
+   If the product's config already has a `no-restricted-syntax` rule for those files (its own raw elements, or other selectors), do not add a second one: spread `rawElementReplacements` into the product's replacement map so one rule keeps every selector. Its keys are tag names or full `JSXOpeningElement` selectors, so the product's rule uses a key that starts with `JSXOpeningElement` as the selector itself.
+
+   ```js
+   import { rawElementReplacements as voloReplacements } from "@volo-uti/volo-web-ui/eslint";
+
+   const rawElementReplacements = { ...voloReplacements, ...productReplacements };
+   const selector = (key) =>
+     key.startsWith("JSXOpeningElement") ? key : `JSXOpeningElement[name.name='${key}']`;
+   ```
 
 ## When something is missing
 
